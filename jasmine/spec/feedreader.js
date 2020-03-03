@@ -12,16 +12,13 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+
          //this spec checks to see that URL in allFeeds exists
          //and it is not empty
          it('URL not null', function() {
          allFeeds.forEach(function(feed){
            expect(feed.url).toBeDefined();
-           expect(feed.url).not.toBe(0);
+           expect(feed.url.length).not.toBe(0);
          });
        });
 
@@ -30,7 +27,7 @@ $(function() {
          it('Name defined & not null', function() {
            allFeeds.forEach(function(feed){
              expect(feed.name).toBeDefined();
-             expect(feed.name).not.toBe(0);
+             expect(feed.name.length).not.toBe(0);
            });
          });
 
@@ -73,8 +70,10 @@ describe('Initial Entries', function(){
       });
 
     it('grab initial entry', function(done){
-       feedchildren = document.querySelector('.feed').children;
-       expect(feedchildren.length).toBeGreaterThan(0);
+       //feedchildren = document.querySelector('.feed').children;
+       //x1 = document.querySelector('.feed'.child);
+       feed = document.querySelectorAll(".feed .entry")
+      expect(feed.length).toBeGreaterThan(0);
       done();
 
     });
